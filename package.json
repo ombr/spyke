@@ -1,0 +1,23 @@
+{
+  "name": "spyke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register spec/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ombr/spyke.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ombr/spyke/issues"
+  },
+  "homepage": "https://github.com/ombr/spyke",
+  "dependencies": {
+    "coffee-script": "^1.9.0",
+    "mocha": "^2.1.0"
+  }
+}
