@@ -1,3 +1,5 @@
+Spyke = require "../src/spyke.js"
+
 describe 'endpoint', ()->
   it 'can play ping pong', (done)->
     caller = new Spyke.endpoint('s3://spyke/luc')
