@@ -1,6 +1,10 @@
-klass = require("../klass.js")
+/**
+ * Default storage interface
+ */
 
-module.exports = new klass({
+Klass = require("../klass.js")
+
+module.exports = new Klass({
 
   get: function(key, callback) { },
 

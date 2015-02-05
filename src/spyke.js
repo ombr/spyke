@@ -1,5 +1,10 @@
+/**
+ * Main Spyke class
+ * Take back the powa'
+ */
+
 module.exports = {
 
-  endpoint: require("./endpoint.js")
+  endpoint: require("./net/endpoint.js")
 
 }
