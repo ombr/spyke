@@ -16,12 +16,14 @@ module.exports = Channel.extends({
   signal: false,
   sdp: false,
   rtc: false,
+  uuid: false,
 
 
-  __construct: function(signal) {
+  __construct: function(signal, uuid) {
 
     console.log('webrtc++', signal)
     this.signal = signal
+    this.uuid = uuid
 
   },
 
@@ -172,6 +174,7 @@ module.exports = Channel.extends({
   submit: function() {
 
     if (this.sdp.desc && this.sdp.ready && !this.sdp.sent) {
+      this.sdp.uuid = this.uuid
       this.sdp.sent = true
       this.signal.send(this.sdp)
     }

@@ -9,27 +9,31 @@ module.exports = new Klass({
 
 
   rtc: false,
-  connected: false,
+  point: false,
+  uuid: false,
 
 
-  __construct: function(signal) {
+  __construct: function(point) {
 
     console.log('peer++')
-    signal.onmessage(this.receive.bind(this, signal))
-    this.rtc = new WRTC(signal)
+    this.point = point
+
+    this.point.signal.onmessage(this.receive.bind(this))
+    this.rtc = new WRTC(this.point.signal, this.point.uuid)
     this.rtc.start()
     this.rtc.offer()
 
   },
 
 
-  receive: function(signal, sdp) {
+  receive: function(sdp) {
 
     if (sdp.desc.type == 'offer') {
       this.rtc.stop()
-      this.rtc = new WRTC(signal)
+      this.rtc = new WRTC(this.point.signal, this.point.uuid)
       this.rtc.start()
     }
+    this.uuid = sdp.uuid
     this.rtc.remote(sdp)
     this.trigger('ready', this)
 
